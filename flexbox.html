@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1 - Flexbox</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Ejercicio 1</h1>
+    <p>Maquetación con Flexbox y JavaScript</p>
+  </header>
+
+  <main class="contenedor">
+
+    <a class="volver" href="index.html">&larr; Volver al inicio</a>
+
+    <h2>Catálogo de frutas</h2>
+    <p class="intro">
+      Las tarjetas se generan desde un arreglo con JavaScript y se organizan con Flexbox.
+      Usá los botones para filtrar, ordenar o resaltar.
+    </p>
+
+    <!-- Barra de controles: también usa Flexbox para alinear los botones -->
+    <section class="controles">
+      <button id="btnTodas" class="boton">Mostrar todas</button>
+      <button id="btnEconomicas" class="boton">Solo económicas (&lt; $1000)</button>
+      <button id="btnOrdenar" class="boton">Ordenar por precio</button>
+      <button id="btnResaltar" class="boton boton-secundario">Resaltar la más cara</button>
+    </section>
+
+    <!-- Acá JavaScript va a insertar las tarjetas. .galeria usa display:flex -->
+    <section id="galeria" class="galeria"></section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Trabajo práctico de programación web</p>
+  </footer>
+
+  <script src="js/flexbox.js"></script>
+</body>
+</html>

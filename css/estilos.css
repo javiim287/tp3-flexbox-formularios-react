@@ -116,3 +116,86 @@ h2 {
   color: #555;
   font-size: 14px;
 }
+
+/* ===========================================================
+   EJERCICIO 1 - FLEXBOX
+   =========================================================== */
+
+/* Botones reutilizables */
+.boton {
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.boton:hover {
+  background-color: #2471a3;
+}
+
+.boton-secundario {
+  background-color: #e67e22;
+}
+
+.boton-secundario:hover {
+  background-color: #ca6a16;
+}
+
+/* Barra de controles: Flexbox con envoltura para que los botones
+   bajen de línea en pantallas chicas */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* Galería de tarjetas: el corazón del ejercicio de Flexbox.
+   - display:flex pone las tarjetas en fila
+   - flex-wrap permite que pasen a la línea siguiente
+   - justify-content distribuye el espacio horizontal
+   - align-items alinea verticalmente */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.tarjeta {
+  flex: 1 1 200px;          /* cada tarjeta ocupa mínimo 200px y crece */
+  max-width: 260px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;            /* dentro de la tarjeta también usamos flex */
+  flex-direction: column;   /* para apilar emoji, nombre y precio */
+  align-items: center;
+  text-align: center;
+}
+
+.tarjeta .emoji {
+  font-size: 44px;
+  margin-bottom: 8px;
+}
+
+.tarjeta h3 {
+  margin-bottom: 4px;
+}
+
+.tarjeta .precio {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Clase que se agrega/quita con JavaScript para resaltar una tarjeta */
+.tarjeta.resaltada {
+  border: 2px solid #e67e22;
+  box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.2);
+}
