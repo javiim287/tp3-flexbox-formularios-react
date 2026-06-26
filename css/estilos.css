@@ -199,3 +199,98 @@ h2 {
   border: 2px solid #e67e22;
   box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.2);
 }
+
+/* ===========================================================
+   EJERCICIO 2 y 3 - FORMULARIO + TABLA
+   =========================================================== */
+
+/* Formulario con Flexbox: los campos se acomodan en fila y envuelven */
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 150px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.campo input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #2980b9;
+}
+
+.campo-boton {
+  flex: 0 0 auto;
+}
+
+/* Tabla de personas */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tabla th,
+.tabla td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla th {
+  background-color: #2c3e50;
+  color: #fff;
+  font-size: 14px;
+}
+
+.tabla tbody tr:hover {
+  background-color: #f7f9fc;
+}
+
+/* Botón de quitar fila */
+.boton-quitar {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.boton-quitar:hover {
+  background-color: #c0392b;
+}
+
+/* Mensaje cuando no hay datos */
+.mensaje-vacio {
+  margin-top: 16px;
+  color: #888;
+  font-style: italic;
+}

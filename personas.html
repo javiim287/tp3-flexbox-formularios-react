@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 2 - Personas</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Ejercicio 2</h1>
+    <p>Formulario y tabla de personas (HTML, CSS y JavaScript)</p>
+  </header>
+
+  <main class="contenedor">
+
+    <a class="volver" href="index.html">&larr; Volver al inicio</a>
+
+    <h2>Cargar persona</h2>
+    <p class="intro">
+      Completá los datos y presioná "Agregar". El IMC se calcula solo a partir
+      del peso y la altura.
+    </p>
+
+    <!-- FORMULARIO. Los campos se organizan con Flexbox (.formulario) -->
+    <form id="formPersona" class="formulario">
+
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Ej: Ana" required>
+      </div>
+
+      <div class="campo">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" placeholder="Ej: Pérez" required>
+      </div>
+
+      <div class="campo">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" min="1" placeholder="Años" required>
+      </div>
+
+      <div class="campo">
+        <label for="altura">Altura (m)</label>
+        <input type="number" id="altura" step="0.01" min="0.5" placeholder="Ej: 1.70" required>
+      </div>
+
+      <div class="campo">
+        <label for="peso">Peso (kg)</label>
+        <input type="number" id="peso" step="0.1" min="1" placeholder="Ej: 65" required>
+      </div>
+
+      <div class="campo campo-boton">
+        <button type="submit" class="boton">Agregar</button>
+      </div>
+
+    </form>
+
+    <h2>Personas cargadas</h2>
+
+    <!-- TABLA. El <tbody> lo llena JavaScript. -->
+    <table class="tabla" id="tablaPersonas">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Altura (m)</th>
+          <th>Peso (kg)</th>
+          <th>IMC</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoTabla">
+        <!-- Las filas se agregan dinámicamente -->
+      </tbody>
+    </table>
+
+    <p id="mensajeVacio" class="mensaje-vacio">Todavía no hay personas cargadas.</p>
+
+  </main>
+
+  <footer class="pie">
+    <p>Trabajo práctico de programación web</p>
+  </footer>
+
+  <script src="js/personas.js"></script>
+</body>
+</html>
