@@ -294,3 +294,38 @@ h2 {
   color: #888;
   font-style: italic;
 }
+
+/* ===========================================================
+   RESPONSIVE - ajustes para pantallas chicas (celulares)
+   En pantallas angostas, los campos del formulario y los
+   botones de control pasan a ocupar todo el ancho.
+   =========================================================== */
+@media (max-width: 600px) {
+  .encabezado h1 {
+    font-size: 22px;
+  }
+
+  /* Los campos del formulario se apilan uno debajo del otro */
+  .campo {
+    flex: 1 1 100%;
+  }
+
+  /* Los botones de control ocupan toda la fila */
+  .controles .boton {
+    flex: 1 1 100%;
+  }
+
+  /* La tabla permite scroll horizontal si no entra */
+  .tabla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Las tarjetas del menú y la galería ocupan todo el ancho */
+  .tarjeta-menu,
+  .tarjeta {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
