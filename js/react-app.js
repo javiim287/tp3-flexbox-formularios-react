@@ -6,6 +6,18 @@
 
 const { useState } = React;
 
+// Funciones auxiliares (las mismas ideas que en el Ejercicio 2).
+function calcularImc(peso, altura) {
+  return (peso / (altura * altura)).toFixed(1);
+}
+
+function categoriaImc(imc) {
+  if (imc < 18.5) return "Bajo";
+  if (imc < 25)   return "Normal";
+  if (imc < 30)   return "Sobrepeso";
+  return "Obesidad";
+}
+
 // -----------------------------------------------------------
 // Componente del FORMULARIO.
 // Recibe por props la función "onAgregar" que ejecuta cuando
@@ -90,6 +102,53 @@ function FormularioPersona({ onAgregar }) {
 }
 
 // -----------------------------------------------------------
+// Componente de la TABLA. Recibe la lista de personas y la
+// función para quitar una persona por su posición.
+// -----------------------------------------------------------
+function TablaPersonas({ personas, onQuitar }) {
+  // Si no hay personas, mostramos un mensaje.
+  if (personas.length === 0) {
+    return <p className="mensaje-vacio">Todavía no hay personas cargadas.</p>;
+  }
+
+  return (
+    <table className="tabla">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Altura (m)</th>
+          <th>Peso (kg)</th>
+          <th>IMC</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        {personas.map((persona, indice) => {
+          const imc = calcularImc(persona.peso, persona.altura);
+          return (
+            <tr key={indice}>
+              <td>{persona.nombre}</td>
+              <td>{persona.apellido}</td>
+              <td>{persona.edad}</td>
+              <td>{persona.altura}</td>
+              <td>{persona.peso}</td>
+              <td>{imc} ({categoriaImc(imc)})</td>
+              <td>
+                <button className="boton-quitar" onClick={() => onQuitar(indice)}>
+                  Quitar
+                </button>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
+
+// -----------------------------------------------------------
 // Componente PRINCIPAL (App). Maneja la lista de personas
 // en su estado y la pasa a los componentes hijos.
 // -----------------------------------------------------------
@@ -99,6 +158,12 @@ function App() {
   // Agrega una persona al final del arreglo del estado.
   function agregarPersona(persona) {
     setPersonas([...personas, persona]);
+  }
+
+  // Quita la persona que está en la posición "indice".
+  function quitarPersona(indice) {
+    // filter deja todas menos la de esa posición (sin mutar el estado).
+    setPersonas(personas.filter((_, i) => i !== indice));
   }
 
   return (
@@ -111,7 +176,7 @@ function App() {
       <FormularioPersona onAgregar={agregarPersona} />
 
       <h2>Personas cargadas</h2>
-      <p className="intro">Cantidad de personas: {personas.length}</p>
+      <TablaPersonas personas={personas} onQuitar={quitarPersona} />
     </div>
   );
 }
