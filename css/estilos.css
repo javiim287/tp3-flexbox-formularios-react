@@ -273,6 +273,21 @@ h2 {
   background-color: #f7f9fc;
 }
 
+/* Etiqueta de color para la categoría de IMC */
+.imc-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.imc-bajo       { background-color: #f39c12; } /* naranja */
+.imc-normal     { background-color: #27ae60; } /* verde */
+.imc-sobrepeso  { background-color: #e67e22; } /* naranja fuerte */
+.imc-obesidad   { background-color: #e74c3c; } /* rojo */
+
 /* Botón de quitar fila */
 .boton-quitar {
   background-color: #e74c3c;

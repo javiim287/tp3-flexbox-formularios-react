@@ -18,6 +18,13 @@ function categoriaImc(imc) {
   return "Obesidad";
 }
 
+function claseImc(imc) {
+  if (imc < 18.5) return "imc-bajo";
+  if (imc < 25)   return "imc-normal";
+  if (imc < 30)   return "imc-sobrepeso";
+  return "imc-obesidad";
+}
+
 // -----------------------------------------------------------
 // Componente del FORMULARIO.
 // Recibe por props la función "onAgregar" que ejecuta cuando
@@ -134,7 +141,12 @@ function TablaPersonas({ personas, onQuitar }) {
               <td>{persona.edad}</td>
               <td>{persona.altura}</td>
               <td>{persona.peso}</td>
-              <td>{imc} ({categoriaImc(imc)})</td>
+              <td>
+                {imc}{" "}
+                <span className={"imc-badge " + claseImc(imc)}>
+                  {categoriaImc(imc)}
+                </span>
+              </td>
               <td>
                 <button className="boton-quitar" onClick={() => onQuitar(indice)}>
                   Quitar

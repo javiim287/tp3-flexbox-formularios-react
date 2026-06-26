@@ -32,6 +32,14 @@ function categoriaImc(imc) {
   }
 }
 
+// FUNCIÓN que devuelve la clase CSS de color según la categoría.
+function claseImc(imc) {
+  if (imc < 18.5)  return "imc-bajo";
+  if (imc < 25)    return "imc-normal";
+  if (imc < 30)    return "imc-sobrepeso";
+  return "imc-obesidad";
+}
+
 // FUNCIÓN que vuelve a dibujar toda la tabla a partir del arreglo.
 function dibujarTabla() {
   // Vaciamos el cuerpo de la tabla antes de redibujar.
@@ -55,7 +63,8 @@ function dibujarTabla() {
       "<td>" + persona.edad + "</td>" +
       "<td>" + persona.altura + "</td>" +
       "<td>" + persona.peso + "</td>" +
-      "<td>" + imc + " (" + categoriaImc(imc) + ")</td>" +
+      "<td>" + imc + ' <span class="imc-badge ' + claseImc(imc) + '">' +
+        categoriaImc(imc) + "</span></td>" +
       '<td><button class="boton-quitar" data-indice="' + indice + '">Quitar</button></td>';
 
     cuerpoTabla.appendChild(fila);
