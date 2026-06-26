@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3 - React</title>
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- React y ReactDOM desde CDN (no hace falta instalar nada) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel permite escribir JSX directamente en el navegador -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Ejercicio 3</h1>
+    <p>Formulario y tabla de personas con React</p>
+  </header>
+
+  <main class="contenedor">
+    <a class="volver" href="index.html">&larr; Volver al inicio</a>
+
+    <!-- React va a dibujar todo dentro de este div -->
+    <div id="raiz"></div>
+  </main>
+
+  <footer class="pie">
+    <p>Trabajo práctico de programación web</p>
+  </footer>
+
+  <!-- type="text/babel" hace que Babel procese nuestro JSX -->
+  <script type="text/babel" src="js/react-app.js"></script>
+</body>
+</html>
